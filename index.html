@@ -92,7 +92,8 @@
   .chart-wrap svg { display: block; }
 
   /* SVG text styles */
-  .chart-wrap text { font-family: var(--font); fill: var(--text2); }
+  .chart-wrap text { font-family: var(--font); }
+  .chart-wrap text.muted { fill: var(--text2); }
   .chart-wrap .th  { font-size: 13px; font-weight: 600; }
   .chart-wrap .ts  { font-size: 11px; }
   .chart-wrap .arr { fill: none; stroke: var(--border2); stroke-width: 1; marker-end: url(#arrow); }
@@ -272,46 +273,52 @@
 </button>
 <div id="diagram-wrap" style="display:none;margin-bottom:28px;">
 <div class="chart-wrap">
-<svg width="100%" viewBox="0 0 820 1380" role="img" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="0 0 820 1380" role="img" xmlns="http://www.w3.org/2000/svg" style="color-scheme: light;">
 <title>Alfie ERP Manufacturing Workflow Flowchart</title>
 <desc>Diagramma top-down di tutti i 15 step del flusso di produzione Alfie ERP.</desc>
 <defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
+  <clipPath id="clip-step1"><rect x="400" y="68" width="340" height="54" rx="8"/></clipPath>
+  <clipPath id="clip-step3"><rect x="400" y="314" width="340" height="54" rx="8"/></clipPath>
+  <clipPath id="clip-step4"><rect x="400" y="392" width="340" height="54" rx="8"/></clipPath>
+  <clipPath id="clip-step6"><rect x="400" y="548" width="340" height="54" rx="8"/></clipPath>
 </defs>
 
 <!-- Legend -->
 <rect x="40" y="16" width="740" height="36" rx="8" fill="none" stroke="#D3D1C7" stroke-width="0.5"/>
 <rect x="56" y="28" width="11" height="11" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="73" y="38" font-size="11" fill="#5f5e5a" font-family="inherit">Produzione</text>
-<rect x="170" y="28" width="11" height="11" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
-<text x="187" y="38" font-size="11" fill="#5f5e5a" font-family="inherit">QA</text>
+<text x="73" y="38" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Produzione</text>
+<rect x="170" y="28" width="11" height="11" rx="2" fill="#E3EFFC" stroke="#1876CE" stroke-width="0.5"/>
+<text x="187" y="38" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">QA</text>
 <rect x="230" y="28" width="11" height="11" rx="2" fill="#EEEDFE" stroke="#3C3489" stroke-width="0.5"/>
-<text x="247" y="38" font-size="11" fill="#5f5e5a" font-family="inherit">QC</text>
+<text x="247" y="38" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">QC</text>
 <rect x="290" y="28" width="11" height="11" rx="2" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-<text x="307" y="38" font-size="11" fill="#5f5e5a" font-family="inherit">Amministrazione</text>
+<text x="307" y="38" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Amministrazione</text>
 <rect x="460" y="28" width="11" height="11" rx="2" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5" stroke-dasharray="3 2"/>
-<text x="477" y="38" font-size="11" fill="#5f5e5a" font-family="inherit">Solo se scorte insufficienti</text>
+<text x="477" y="38" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Solo se scorte insufficienti</text>
 
 <!-- ── Main flow: centred at x=550, boxes 300px wide (x=400..700) ── -->
 
 <!-- Step 1 -->
 <rect x="400" y="68" width="340" height="54" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-<text x="570" y="91" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">1. Customer Purchase Order</text>
+<rect x="400" y="95" width="340" height="27" fill="#E3EFFC" clip-path="url(#clip-step1)"/>
+<line x1="400" y1="95" x2="740" y2="95" stroke="#1876CE" stroke-width="0.8"/>
+<text x="570" y="82" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">1. Customer Purchase Order</text>
 <text x="570" y="109" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#854F0B" font-family="inherit">Amministrazione crea — QA approva</text>
 <line x1="570" y1="122" x2="570" y2="146" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 2 -->
 <rect x="400" y="146" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="169" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">2. Material Requirement Planning</text>
+<text x="570" y="160" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">2. Material Requirement Planning</text>
 <text x="570" y="187" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione verifica scorte</text>
 <line x1="570" y1="200" x2="570" y2="226" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Decision diamond -->
 <polygon points="570,226 638,258 570,290 502,258" fill="#f5f4f0" stroke="#B4B2A9" stroke-width="0.5"/>
-<text x="570" y="254" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5f5e5a" font-family="inherit">Scorte</text>
-<text x="570" y="268" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5f5e5a" font-family="inherit">sufficienti?</text>
+<text x="570" y="254" text-anchor="middle" dominant-baseline="central" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Scorte</text>
+<text x="570" y="268" text-anchor="middle" dominant-baseline="central" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">sufficienti?</text>
 
 <!-- NO branch: go left to x=220 then down to top of 2.1 box at y=300 -->
 <path d="M502 258 L220 258 L220 300" fill="none" stroke="#A32D2D" stroke-width="0.8" marker-end="url(#arrow)"/>
@@ -332,89 +339,95 @@
 <text x="338" y="396" text-anchor="middle" font-size="10" fill="#A32D2D" font-family="inherit">poi Step 3</text>
 <!-- YES branch -->
 <line x1="570" y1="290" x2="570" y2="314" stroke="#888780" stroke-width="0.8" marker-end="url(#arrow)"/>
-<text x="586" y="305" font-size="11" fill="#5f5e5a" font-family="inherit">Sì</text>
+<text x="586" y="305" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Sì</text>
 
 <!-- Step 3 -->
 <rect x="400" y="314" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="337" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">3. Batch Creation</text>
+<rect x="400" y="341" width="340" height="27" fill="#E3EFFC" clip-path="url(#clip-step3)"/>
+<line x1="400" y1="341" x2="740" y2="341" stroke="#1876CE" stroke-width="0.8"/>
+<text x="570" y="328" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">3. Batch Creation</text>
 <text x="570" y="355" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione crea — QA approva</text>
 <line x1="570" y1="368" x2="570" y2="392" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 4 -->
 <rect x="400" y="392" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="415" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">4. Raw Material Indent</text>
+<rect x="400" y="419" width="340" height="27" fill="#E3EFFC" clip-path="url(#clip-step4)"/>
+<line x1="400" y1="419" x2="740" y2="419" stroke="#1876CE" stroke-width="0.8"/>
+<text x="570" y="406" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">4. Raw Material Indent</text>
 <text x="570" y="433" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione richiede — QA approva</text>
 <line x1="570" y1="446" x2="570" y2="470" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 5 -->
 <rect x="400" y="470" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="493" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">5. Raw Material Issue</text>
+<text x="570" y="484" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">5. Raw Material Issue</text>
 <text x="570" y="511" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione emette materiale</text>
 <line x1="570" y1="524" x2="570" y2="548" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 6 -->
 <rect x="400" y="548" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="571" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">6. Packing Material Indent</text>
+<rect x="400" y="575" width="340" height="27" fill="#E3EFFC" clip-path="url(#clip-step6)"/>
+<line x1="400" y1="575" x2="740" y2="575" stroke="#1876CE" stroke-width="0.8"/>
+<text x="570" y="562" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">6. Packing Material Indent</text>
 <text x="570" y="589" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione richiede — QA approva</text>
 <line x1="570" y1="602" x2="570" y2="626" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 7 -->
 <rect x="400" y="626" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="649" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">7. Packing Material Issue</text>
+<text x="570" y="640" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">7. Packing Material Issue</text>
 <text x="570" y="667" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione emette materiale</text>
 <line x1="570" y1="680" x2="570" y2="704" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 8 -->
 <rect x="400" y="704" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="727" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">8. Work In Progress (WIP)</text>
+<text x="570" y="718" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">8. Work In Progress (WIP)</text>
 <text x="570" y="745" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione registra ogni processo</text>
 <line x1="570" y1="758" x2="570" y2="782" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 9 -->
 <rect x="400" y="782" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="805" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">9. FG/SFG Sample Request</text>
+<text x="570" y="796" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">9. FG/SFG Sample Request</text>
 <text x="570" y="823" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione richiede campione</text>
 <line x1="570" y1="836" x2="570" y2="860" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 10 -->
 <rect x="400" y="860" width="340" height="54" rx="8" fill="#EEEDFE" stroke="#3C3489" stroke-width="0.5"/>
-<text x="570" y="883" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#26215C" font-family="inherit">10. FG/SFG Sample Receiving</text>
+<text x="570" y="874" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#26215C" font-family="inherit">10. FG/SFG Sample Receiving</text>
 <text x="570" y="901" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#3C3489" font-family="inherit">QC riceve il campione</text>
 <line x1="570" y1="914" x2="570" y2="938" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 11 -->
 <rect x="400" y="938" width="340" height="54" rx="8" fill="#EEEDFE" stroke="#3C3489" stroke-width="0.5"/>
-<text x="570" y="961" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#26215C" font-family="inherit">11. FG Analysis</text>
+<text x="570" y="952" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#26215C" font-family="inherit">11. FG Analysis</text>
 <text x="570" y="979" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#3C3489" font-family="inherit">QC — Protocol of Test + Analysis</text>
 <line x1="570" y1="992" x2="570" y2="1016" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 12 -->
 <rect x="400" y="1016" width="340" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-<text x="570" y="1039" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">12. Finished Product Transfer Note</text>
+<text x="570" y="1030" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#085041" font-family="inherit">12. Finished Product Transfer Note</text>
 <text x="570" y="1057" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#0F6E56" font-family="inherit">Produzione registra packs</text>
 <line x1="570" y1="1070" x2="570" y2="1094" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 13 -->
-<rect x="400" y="1094" width="340" height="54" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
-<text x="570" y="1117" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#3C3489" font-family="inherit">13. Finished Product Release Note</text>
-<text x="570" y="1135" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#534AB7" font-family="inherit">QA rilascia il prodotto</text>
+<rect x="400" y="1094" width="340" height="54" rx="8" fill="#E3EFFC" stroke="#1876CE" stroke-width="0.5"/>
+<text x="570" y="1108" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#104C85" font-family="inherit">13. Finished Product Release Note</text>
+<text x="570" y="1135" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#1876CE" font-family="inherit">QA rilascia il prodotto</text>
 <line x1="570" y1="1148" x2="570" y2="1172" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 14 -->
 <rect x="400" y="1172" width="340" height="54" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-<text x="570" y="1195" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">14. Finish Goods Receipt</text>
+<text x="570" y="1186" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">14. Finish Goods Receipt</text>
 <text x="570" y="1213" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#854F0B" font-family="inherit">Amministrazione registra ricezione</text>
 <line x1="570" y1="1226" x2="570" y2="1250" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
 
 <!-- Step 15 -->
 <rect x="400" y="1250" width="340" height="54" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-<text x="570" y="1273" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">15. Invoice (TAX Invoice)</text>
+<text x="570" y="1264" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="600" fill="#633806" font-family="inherit">15. Invoice (TAX Invoice)</text>
 <text x="570" y="1291" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#854F0B" font-family="inherit">Amministrazione crea e approva</text>
 
 <!-- End -->
 <line x1="570" y1="1304" x2="570" y2="1322" stroke="#888780" stroke-width="1"/>
 <rect x="508" y="1322" width="124" height="34" rx="17" fill="#f5f4f0" stroke="#B4B2A9" stroke-width="0.5"/>
-<text x="570" y="1340" text-anchor="middle" dominant-baseline="central" font-size="11" fill="#5f5e5a" font-family="inherit">Fine workflow</text>
+<text x="570" y="1340" text-anchor="middle" dominant-baseline="central" font-size="11" class="muted" fill="#5f5e5a" font-family="inherit">Fine workflow</text>
 </svg>
 </div>
 </div>
