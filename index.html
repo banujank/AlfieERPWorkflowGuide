@@ -221,6 +221,18 @@
     border-radius: 0;
     font-size: 12px; color: var(--text2); line-height: 1.5;
   }
+
+  /* ── Quick-reference tips section ── */
+  .tips { display: flex; flex-direction: column; gap: 8px; }
+  .tip-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+    background: #E6F0FB; color: #1D5BA8;
+  }
+  :root[data-theme="dark"] .tip-icon,
+  :root:not([data-theme="light"]) .tip-icon { background: #0E2F5A; color: #6EA8E8; }
   .formula-box {
     margin-top: 10px; padding: 10px 12px;
     border-radius: 6px;
@@ -872,6 +884,79 @@
 </div>
 
 </div><!-- end .steps -->
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — QUICK REFERENCE
+═══════════════════════════════════════════ -->
+<div class="section-title">Utilità e Riferimenti Rapidi</div>
+
+<div class="tips">
+
+<!-- Tip A -->
+<div class="step-card">
+  <div class="step-header" onclick="toggle(this)">
+    <div class="tip-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v13H3z"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="step-title">Vedere scadenza degli articoli</div>
+    </div>
+    <span class="chevron">›</span>
+  </div>
+  <div class="step-body">
+    <div class="sub-section">
+      <span class="nav-path">Reports › Stock Reports › Near Expiry Stock Aging › Active Material</span>
+      <ul class="step-items">
+        <li>Selezionare <b>Active Material</b> per vedere la lista degli articoli con le rispettive date di scadenza</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Tip B -->
+<div class="step-card">
+  <div class="step-header" onclick="toggle(this)">
+    <div class="tip-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10h2l2-3 2 6 2-4 1 1h1"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="step-title">Verificare unità producibili da una materia prima</div>
+    </div>
+    <span class="chevron">›</span>
+  </div>
+  <div class="step-body">
+    <div class="sub-section">
+      <span class="nav-path">Module › Quality Assurance › Transaction › Batch › Check Batch Size</span>
+      <ul class="step-items">
+        <li>Selezionare la <b>materia prima</b> desiderata per calcolare quante unità di prodotto finito è possibile produrre in base alla quantità disponibile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Tip C -->
+<div class="step-card">
+  <div class="step-header" onclick="toggle(this)">
+    <div class="tip-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7"/><path d="M16 2v4M8 2v4M3 10h18"/><circle cx="18" cy="18" r="3"/><path d="M18 16v2l1 1"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="step-title">Vedere la posizione in rack di una materia prima</div>
+    </div>
+    <span class="chevron">›</span>
+  </div>
+  <div class="step-body">
+    <div class="sub-section">
+      <div class="sub-label"><span class="sub-dot" style="background:#1D9E75"></span>Nel contesto di Raw Material Issue (Step 5)</div>
+      <ul class="step-items">
+        <li>Dopo aver salvato il <b>Raw Material Issue</b>, premere <b>Preview</b></li>
+        <li>La stampa mostra l'<b>allocazione in rack</b> per ciascuna materia prima emessa</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .tips -->
 
 <script>
 function toggle(header) {
