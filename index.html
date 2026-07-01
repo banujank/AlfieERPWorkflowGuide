@@ -473,6 +473,7 @@
         <li>Selezionare <b>SalesOrderCategory</b> per visualizzare la lista ordini</li>
         <li>Compilare tutti i campi con asterisco rosso</li>
         <li>Inserire dati cliente, <b>Item Code</b>, Unit, quantità e <b>Rate</b></li>
+        <li style="color:var(--text);">Modificare il <b>Batch Size</b> aggiungendo la quantità per il <b>campionamento</b> (sampling) destinata all'analisi <span style="color:#A32D2D;font-size:11px;font-weight:600;">(importante)</span></li>
         <li>Inserire <b>Delivery Date</b></li>
         <li>Dopo inserimento articolo → <b>Add</b></li>
         <li>Dopo tutti gli articoli → <b>Save</b></li>
@@ -973,7 +974,39 @@
       <ul class="step-items">
         <li>Inserire la <b>password supervisore</b> quando richiesta</li>
         <li>Selezionare <b>Production</b> e impostare la percentuale di <b>Finished Goods Excess Yield</b></li>
-        <li>Attualmente impostata al <b>900%</b> — consente di produrre più unità di quanto richiesto dall'ordine</li>
+        <li>Attualmente impostata al <b>900%</b>, per consentire di produrre più unità di quanto richiesto dall'ordine</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Tip E -->
+<div class="step-card">
+  <div class="step-header" onclick="toggle(this)">
+    <div class="tip-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="step-title">Produrre più dell'ordine cliente: unire ordine cliente e ordine proprio</div>
+    </div>
+    <span class="chevron">›</span>
+  </div>
+  <div class="step-body">
+    <div class="note-box" style="border-left-color:#1876CE;margin-bottom:4px;">
+      <b>Esempio:</b> il cliente ordina 2 flaconi di shampoo, ma si decide di produrne 5 in totale: 2 per il cliente e 3 da tenere in farmacia per la vendita. Si creano quindi due ordini separati (2 + 3) e si uniscono in un unico batch da 5.
+    </div>
+    <div class="sub-section">
+      <div class="sub-label"><span class="sub-dot" style="background:#EF9F27"></span>Step 1: Customer Purchase Order</div>
+      <ul class="step-items">
+        <li>Creare il <b>Customer Purchase Order</b> per la quantità richiesta dal cliente <span style="color:var(--text3);font-size:11px">(es. 2 flaconi)</span>, nel campo <b>Order Type</b> selezionare <b>Customer Order</b></li>
+        <li>Creare un secondo <b>Customer Purchase Order</b> per la quantità aggiuntiva da produrre per la farmacia <span style="color:var(--text3);font-size:11px">(es. 3 flaconi)</span>, nel campo <b>Order Type</b> selezionare <b>Own Order</b></li>
+      </ul>
+    </div>
+    <div class="sub-section">
+      <div class="sub-label"><span class="sub-dot" style="background:#1D9E75"></span>Step 3: Batch Creation</div>
+      <ul class="step-items">
+        <li>In <b>Batch Creation</b>, aggiungere entrambi gli ordini nello stesso batch</li>
+        <li>Il batch coprirà la quantità totale <span style="color:var(--text3);font-size:11px">(es. 5 flaconi)</span></li>
       </ul>
     </div>
   </div>
